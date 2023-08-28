@@ -4,251 +4,285 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <include
+            android:id="@+id/title_layout"
+            layout="@layout/common_title">
 
-        <LinearLayout
+        </include>
+
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="BMI"
-                android:textColor="@color/title"
-                android:textSize="25sp"
-                android:textStyle="bold">
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
-            </TextView>
+                <!--  packed up -->
+                <LinearLayout
+                    android:id="@+id/bmi_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@color/black">
 
-            </View>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:text="BMI"
+                        android:textColor="@color/title"
+                        android:textSize="25sp"
+                        android:textStyle="bold">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp">
+                    </TextView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@color/line_button">
+
+                    </View>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="5dp">
+
+                        <TextView
+                            android:id="@+id/height_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="HEIGHT"
+                            android:textColor="@color/content"
+                            android:textSize="16sp">
+
+                        </TextView>
+
+
+                        <EditText
+                            android:id="@+id/height_edit"
+                            android:layout_width="130dp"
+                            android:layout_height="match_parent"
+                            android:layout_toStartOf="@+id/height_unit"
+                            android:inputType="numberDecimal|numberSigned"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="16sp">
+
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/height_unit"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center"
+                            android:text="m"
+                            android:textColor="@color/content"
+                            android:textSize="14sp">
+
+                        </TextView>
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="5dp">
+
+                        <TextView
+                            android:id="@+id/weight_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="WEIGHT"
+                            android:textColor="@color/content"
+                            android:textSize="16sp">
+
+                        </TextView>
+
+
+                        <EditText
+                            android:id="@+id/weight_edit"
+                            android:layout_width="130dp"
+                            android:layout_height="match_parent"
+                            android:layout_toStartOf="@+id/weight_unit"
+                            android:inputType="numberDecimal|numberSigned"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="16sp">
+
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/weight_unit"
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center"
+                            android:text="kg"
+                            android:textColor="@color/content"
+                            android:textSize="14sp">
+
+                        </TextView>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="5dp">
+
+                        <TextView
+                            android:id="@+id/result_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="RESULT"
+                            android:textColor="@color/content"
+                            android:textSize="16sp">
+
+                        </TextView>
+
+
+                        <TextView
+                            android:id="@+id/result"
+                            android:layout_width="160dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center"
+                            android:text="123"
+                            android:textColor="@color/content"
+                            android:textSize="17sp">
+
+                        </TextView>
+
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/calculate"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="35dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/line_button"
+                        android:gravity="center"
+                        android:text="Calculate"
+                        android:textSize="18sp"
+                        android:textColor="@color/white">
+
+                    </Button>
+
+                    <TextView
+                        android:id="@+id/comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="You are fat!!"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:visibility="gone">
+
+                    </TextView>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="290dp"
+                    android:layout_marginTop="30dp"
+
+                    android:scaleType="fitStart"
+                    android:src="@drawable/original">
+
+                </ImageView>
 
                 <TextView
-                    android:id="@+id/height_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="HEIGHT"
-                    android:textColor="@color/content"
-                    android:textSize="16sp">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="CURRENCY"
+                    android:textColor="@color/title"
+                    android:textSize="25sp"
+                    android:textStyle="bold">
 
                 </TextView>
 
-                <EditText
-                    android:id="@+id/height_edit"
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_toStartOf="@+id/height_unit"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:text=""
-                    android:textColor="@color/content"
-                    android:textSize="16sp">
-                </EditText>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@color/line_button">
 
-                <TextView
-                    android:id="@+id/height_unit"
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:text="m"
-                    android:textColor="@color/black"
-                    android:textSize="14sp">
+                </View>
 
-                </TextView>
-            </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="40dp">
 
+                    <EditText
+                        android:id="@+id/usd"
+                        android:layout_width="130dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="16sp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp">
+                    </EditText>
 
-                <TextView
-                    android:id="@+id/weight_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="WEIGHT"
-                    android:textColor="@color/content"
-                    android:textSize="16sp">
+                    <TextView
+                        android:id="@+id/to"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="to"
+                        android:textColor="@color/content"
+                        android:textSize="16sp">
 
-                </TextView>
+                    </TextView>
 
-                <EditText
-                    android:id="@+id/weight_edit"
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_toStartOf="@+id/weight_unit"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="16sp">
-                </EditText>
+                    <TextView
+                        android:id="@+id/aud"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center"
+                        android:text="AUD"
+                        android:textColor="@color/content"
+                        android:textSize="16sp">
 
-                <TextView
-                    android:id="@+id/weight_unit"
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:text="kg"
-                    android:textColor="@color/content"
-                    android:textSize="14sp">
+                    </TextView>
 
-                </TextView>
-            </RelativeLayout>
+                </RelativeLayout>
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp">
 
-                <TextView
-                    android:id="@+id/result_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="RESULT"
-                    android:textColor="@color/content"
-                    android:textSize="16sp">
 
-                </TextView>
-
-                <TextView
-                    android:id="@+id/result"
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:text = ""
-                    android:textColor="@color/content"
-                    android:textSize="17sp">
-
-                </TextView>
-            </RelativeLayout>
-
-            <Button
-                android:id = "@+id/calculate"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/line_button"
-                android:text="CALCULATE"
-                android:textSize="18sp"
-                android:textColor="@color/white">
-
-            </Button>
-
-            <TextView
-                android:id="@+id/comment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="you are fat!!"
-                android:textSize="25sp"
-                android:textColor="@color/title"
-                android:visibility="invisible">
-
-            </TextView>
-
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="match_parent"
-                android:layout_height="380dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/original"
-                android:scaleType="fitStart">
-
-            </ImageView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="CURRENCY"
-                android:textSize="25sp"
-                android:textColor="@color/title">
-
-            </TextView>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@color/black">
-
-            </View>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="40dp">
-
-                <EditText
-                    android:id="@+id/usd"
-                    android:layout_width="130dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:text=""
-                    android:textColor="@color/content"
-                    android:textSize="16sp">
-                </EditText>
-
-                <TextView
-                    android:id="@+id/to"
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:gravity="center"
-                    android:text="to"
-                    android:textColor="@color/content"
-                    android:textSize="16sp">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/aud"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
-                    android:gravity="center"
-                    android:text="AUD"
-                    android:textColor="@color/content"
-                    android:textSize="16sp">
-
-                </TextView>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>

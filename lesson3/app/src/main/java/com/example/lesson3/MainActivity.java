@@ -1,6 +1,7 @@
 package com.example.lesson3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +19,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView left_text, right_text;
-    Button left_btn, right_btn, next, element_page, list_page;
+    Button left_btn, right_btn, next, element_page,element_no_bmi_page, list_page;
 
     //declare PopupWindow (container)
     private PopupWindow popupWindow;
@@ -59,52 +60,72 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //固定格式 监听器
-    private View.OnClickListener actionBtnOnClick = new View.OnClickListener() {
+    private View.OnClickListener actionBtnOnClick = new View.OnClickListener(){
+
         @Override
         public void onClick(View view) {
-            int viewId = view.getId();
 
-            if (viewId == R.id.left_btn) {
+            int id = view.getId();
+            if (id == R.id.left_btn) {
                 String temp = left_text.getText().toString();
                 int temp_int = Integer.parseInt(temp);
                 temp_int = temp_int + 1;
                 temp = String.valueOf(temp_int);
                 left_text.setText(temp);
-            }else if (viewId == R.id.right_btn) {
-                String temp = right_text.getText().toString();
-                int temp_int = Integer.parseInt(temp);
+            } else if (id == R.id.right_btn) {
+                int temp_int;
+                String temp;
+                temp = right_text.getText().toString();
+                temp_int = Integer.parseInt(temp);
                 temp_int = temp_int + 1;
                 temp = String.valueOf(temp_int);
                 right_text.setText(temp);
-            }else if (viewId == R.id.next) {
-                //呼叫popupView窗口
+            } else if (id == R.id.next) {
                 popWindow(popupView);
-            }else if(viewId == R.id.element_page){
-                //intent 用于换页面
+            } else if (id == R.id.element_page) {
                 Intent intent = new Intent();
+                Bundle bundle = new Bundle();
                 intent.setClass(MainActivity.this, ElementActivity.class);
+                // title , content
+                bundle.putString("style", "original");
+                bundle.putInt("weight", 0);
+                intent.putExtras(bundle);
+
                 startActivity(intent);
 
-                //popupView 相关
-                //取得手机荧幕的参数： i.e:位置，亮度。。。
                 WindowManager.LayoutParams lp = getWindow().getAttributes();
-                //调整透明度： 0-1之间，正常=1；变暗=0？
                 lp.alpha = 1f;
-                //调成回亮版=1
                 getWindow().setAttributes(lp);
-                //关闭popupView
                 popupWindow.dismiss();
-            }else if(viewId == R.id.list_page){
-                Intent intent = new Intent();
+            } else if (id == R.id.element_no_bmi_page) {
+                WindowManager.LayoutParams lp;
+                Bundle bundle;
+                Intent intent;
+                intent = new Intent();
+                bundle = new Bundle();
                 intent.setClass(MainActivity.this, ElementActivity.class);
+                // title , content
+                bundle.putString("style", "no_bmi");
+                bundle.putInt("weight", 123);
+                intent.putExtras(bundle);
                 startActivity(intent);
 
-                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp = getWindow().getAttributes();
+                lp.alpha = 1f;
+                getWindow().setAttributes(lp);
+                popupWindow.dismiss();
+            } else if (id == R.id.list_page) {
+                WindowManager.LayoutParams lp;
+                Intent intent;
+                intent = new Intent();
+                intent.setClass(MainActivity.this, ListActivity.class);
+                startActivity(intent);
+
+                lp = getWindow().getAttributes();
                 lp.alpha = 1f;
                 getWindow().setAttributes(lp);
                 popupWindow.dismiss();
             }
-
         }
     };
 
@@ -121,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
 
         element_page = popupView.findViewById(R.id.element_page);
         element_page.setOnClickListener(actionBtnOnClick);
+
+        element_no_bmi_page = popupView.findViewById(R.id.element_no_bmi_page);
+        element_no_bmi_page.setOnClickListener(actionBtnOnClick);
 
         list_page = popupView.findViewById(R.id.list_page);
         list_page.setOnClickListener(actionBtnOnClick);
@@ -147,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
         //分页弹出，外部变暗
         lp.alpha = 0.6f;
+        //更改
         getWindow().setAttributes(lp);
 
         popupView.setOnTouchListener(new View.OnTouchListener() { //如果触摸位置在窗口外面则销毁

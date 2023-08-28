@@ -6,37 +6,37 @@
     android:orientation="horizontal"
     android:background="@color/gray">
 
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/mochi">
 
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_gravity="center"
-        android:background="@drawable/ggbond">
+        </ImageView>
 
-    </ImageView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text = "@string/app_name"
+            android:textColor="@color/black"
+            android:gravity="center"
+            app:autoSizeTextType="uniform"
+            >
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_weight="1"
-        android:text = "@string/default_data"
-        android:textColor="@color/black"
-        android:gravity="center"
-        app:autoSizeTextType="uniform"
-        >
+        </TextView>
 
-    </TextView>
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center">
 
-    <Button
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_gravity="center">
+        </Button>
 
-    </Button>
-
-
-</LinearLayout>
+    </LinearLayout>

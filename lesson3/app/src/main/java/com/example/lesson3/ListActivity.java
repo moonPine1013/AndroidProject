@@ -29,12 +29,12 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         String json1 = "{\n" +
-                " \"name\":\"呱呱呱\",\n"+
+                " \"name\":\"呜哇嘿\",\n"+
                 " \"content\":\"123\"\n" +
                 "}";
 
         String json2 = "{\n" +
-                " \"name\":\"Nova\",\n"+
+                " \"name\":\"Estella\",\n"+
                 " \"content\":\"ong\"\n" +
                 "}";
 
@@ -48,8 +48,6 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void init_View(){
-
-
 
         recyclerView = findViewById(R.id.list);
         //set LayoutManager

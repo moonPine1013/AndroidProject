@@ -20,7 +20,27 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
+
+        <activity
+            android:name=".ElementActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ListActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ListDetailActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
