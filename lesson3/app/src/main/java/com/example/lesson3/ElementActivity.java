@@ -25,7 +25,7 @@ public class ElementActivity extends AppCompatActivity {
     ImageView imageView, imageView2;
     LinearLayout bmi_layout;
 
-    String style= "";
+    public String style= "";
     int weight = 0;
 
     @Override
@@ -33,8 +33,9 @@ public class ElementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_element);
 
-
+        //接已经有的东西，MainActivity的putBundle
         Bundle bundle = getIntent().getExtras();
+        //取到整包后再取小包，接到资料
         style = bundle.getString("style");
         weight = bundle.getInt("weight");
 
@@ -42,17 +43,16 @@ public class ElementActivity extends AppCompatActivity {
 
         if (style.equals("original")){
             // original
+            //why set 'original' visible? 防止project出错/GONE后再次重置
             bmi_layout.setVisibility(View.VISIBLE);
 
         }else if(style.equals("no_bmi")){
-            // no_bmi
+            // Get rid of the BMI section
             bmi_layout.setVisibility(View.GONE);
 
         }else if(style.equals("123")){
 
         }
-
-
     }
 
     private void init_View(){

@@ -22,12 +22,10 @@ public class ListDetailActivity extends AppCompatActivity {
         init_view();
 
         text.setText(txt);
-
     }
 
     public void init_view(){
 
         text = findViewById(R.id.text);
-
     }
 }

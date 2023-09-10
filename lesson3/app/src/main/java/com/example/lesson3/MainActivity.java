@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.setClass(MainActivity.this, ElementActivity.class);
                 // title , content
                 bundle.putString("style", "original");
+                //也可以传入空的 i.e 0
                 bundle.putInt("weight", 0);
                 intent.putExtras(bundle);
 
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.setClass(MainActivity.this, ElementActivity.class);
                 // title , content
                 bundle.putString("style", "no_bmi");
+                //对应接口1v1
                 bundle.putInt("weight", 123);
                 intent.putExtras(bundle);
                 startActivity(intent);

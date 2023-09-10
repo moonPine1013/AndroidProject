@@ -55,6 +55,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
                     content.setText("1013hi");
+
+                    //following method failed because it does not matched with the format of adapter
 //                    intent.setClass(MainActivity.this, ListDetailActivity.class);
 //                    // title , content
 //                    bundle.putString("text", "Detail Page");
