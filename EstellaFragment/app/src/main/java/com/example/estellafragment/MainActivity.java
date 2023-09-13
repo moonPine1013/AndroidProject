@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    //可以使navigation bar 再点击next page换页同时 让它做一个弹出又退下隐藏的动作
     public static void hideBottomNavigationView(BottomNavigationView view){
 
         view.clearAnimation();
