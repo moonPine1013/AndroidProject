@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity = "center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/id_pop_layout"
+            android:layout_width="match_parent"
+            android:layout_height="177.3dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:background="@color/purple_200">
+
+            <Button
+                android:id="@+id/element_page"
+                android:layout_width="326.7dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="17.3dp"
+                android:text="BMICalculator"
+                android:textColor="@color/black"
+                android:textSize="15sp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/element_no_bmi_page"
+                android:layout_width="326.7dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="7.3dp"
+                android:text="Currency"
+                android:textColor="@color/black"
+                android:textSize="15sp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/list_page"
+                android:layout_width="326.7dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="7.3dp"
+                android:text="iconList"
+                android:textColor="@color/black"
+                android:textSize="15sp">
+
+            </Button>
+
+        </LinearLayout>
+    </RelativeLayout>
