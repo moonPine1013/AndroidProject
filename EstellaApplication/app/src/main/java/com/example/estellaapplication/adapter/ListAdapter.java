@@ -1,5 +1,6 @@
 package com.example.estellaapplication.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +29,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     // Store Data
     public String[] listData ;
+    //创建context的接口,接整个object的固定用法
+    public Context context;
     ArrayList<String> mContent = new ArrayList<String>();
     ArrayList<String> mName = new ArrayList<String>();
 
@@ -48,16 +51,24 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             content = itemView.findViewById(R.id.message_content);
             msgSelfie = itemView.findViewById(R.id.message_selfie);
 
+            //点击头像，会切换到一个空白页
             msgSelfie.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
                     Intent intent = new Intent();
                     Bundle bundle = new Bundle();
-                    content.setText("1013hi");
 
+                    //接收从 list activity传送过来的新资料
+                    //这里的context就是list activity里的东西
+                    intent.setClass(context, ListDetailActivity.class);
+                    //Title, Content
+                    bundle.putString("Text", "Detail Page");
+                    intent.putExtras(bundle);
 
+                    context.startActivity(intent);
 
+                    //content.setText("1013hi");
 
                 }
             });
@@ -73,9 +84,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         }
     }
 
-    public ListAdapter(String[] listData){
+    public ListAdapter(String[] listData, Context context){
         this.listData = listData;
-
+        //为了把list activity 中的 “呜哇嘿”...传入这里面
+        //用context接住
+        this.context = context;
         // Get the data from activity and put them into the list by position.
         processData();
     }
