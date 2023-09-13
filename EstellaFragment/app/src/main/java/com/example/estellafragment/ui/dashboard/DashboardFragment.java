@@ -10,28 +10,45 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.estellafragment.R;
 import com.example.estellafragment.databinding.FragmentDashboardBinding;
 
 public class DashboardFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    //private FragmentDashboardBinding binding;
+
+    public static View mRoot;
+    TextView textView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        //DashboardViewModel dashboardViewModel =
+                //new ViewModelProvider(this).get(DashboardViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        //binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        //View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        //final TextView textView = binding.textDashboard;
+        //dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //return root;
+
+        //固定写法:
+        //用inflater来接layout，mRoot就是xml的layout的本身
+        mRoot = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        initView();
+
+        return mRoot;
+    }
+
+    public void initView(){
+        //用于查找mRoot是对照谁的
+        textView = mRoot.findViewById(R.id.text_dashboard);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        //binding = null;
     }
 }
