@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
-
+    <!-- navigation_XXX XXX设定的pageName会先出来 -->
+    <!-- start from which fragment -->
+    <!-- 有几个fragments就写几个板块 -->
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.estellafragment.ui.home.HomeFragment"
