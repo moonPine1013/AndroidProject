@@ -1,2 +1,0 @@
-# AndroidProject
-Android Studio Project
