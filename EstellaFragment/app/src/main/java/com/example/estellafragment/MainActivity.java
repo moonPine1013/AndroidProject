@@ -12,6 +12,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.estellafragment.databinding.ActivityMainBinding;
 
+
+//Activity变成container, 再去装fragments(在bottom navigation icons上方)
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -22,16 +24,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        //宣告navigation view
         navigationView = findViewById(R.id.nav_view);
-
+        //创建navigation controller
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        //用 navigationUI 连接起来
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
-
-
-
-
 
 
 
@@ -49,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         //NavigationUI.setupWithNavController(binding.navView, navController);
+    }
+
+    public static void hideBottomNavigationView(BottomNavigationView view){
+
+        view.clearAnimation();
+        //往下移动 从而消失
+        view.animate().translationY(view.getHeight()).setDuration(300);
+    }
+
+    public static void showBottomNavigationView(BottomNavigationView view){
+
+        view.clearAnimation();
+        //移动回来，从而再次出现
+        view.animate().translationY(0).setDuration(300);
     }
 
 }

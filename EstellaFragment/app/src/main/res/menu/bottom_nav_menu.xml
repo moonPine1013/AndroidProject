@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- 修改title的名字 会改变页面icon的名字 -->
+    <!-- 有几个小icons就写几个item -->
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
