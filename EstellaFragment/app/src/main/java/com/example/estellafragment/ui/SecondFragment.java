@@ -23,12 +23,12 @@ public class SecondFragment extends Fragment {
     public String temp = "";
 
     public static SecondFragment newInstance(String id){
-        SecondFragment frag = new SecondFragment();
-        Bundle args = new Bundle();
+        SecondFragment fragment = new SecondFragment();
+        Bundle bundle = new Bundle();
 
-        args.putString("id", id);
-        frag.setArguments(args);
-        return frag;
+        bundle.putString("id", id);
+        fragment.setArguments(bundle);
+        return fragment;
     }
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
@@ -36,6 +36,7 @@ public class SecondFragment extends Fragment {
         mRoot = inflater.inflate(R.layout.fragment_second, container, false);
         temp = getArguments().getString("id");
         initView();
+        //他只能放在InitView后面
         txt.setText(temp);
         return mRoot;
     }
@@ -54,6 +55,8 @@ public class SecondFragment extends Fragment {
             int id = view.getId();
             if (id == R.id.back_btn) {
                 MainActivity.showBottomNavigationView(MainActivity.navigationView);
+                back_btn.setVisibility(View.GONE);
+                txt.setVisibility(TextView.GONE);
                 getParentFragmentManager().popBackStackImmediate();
             }
         }

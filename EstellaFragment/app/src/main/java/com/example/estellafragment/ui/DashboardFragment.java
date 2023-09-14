@@ -35,8 +35,8 @@ public class DashboardFragment extends Fragment {
         //用inflater来接layout，mRoot就是xml的layout的本身
         mRoot = inflater.inflate(R.layout.fragment_dashboard, container, false);
         //必要！！把现在页面的fragManager抓取出来，并存进这个变量中
-        //为什么被划掉，是因为版本过时了，但目前还是可用
-        fragmentManager = getFragmentManager();
+        //为什么被划掉，是因为版本过时了，但目前还是可用 !!!!目前发现版本不能再用了！！！
+        fragmentManager = requireActivity().getSupportFragmentManager();
         initView();
 
         return mRoot;
@@ -57,16 +57,16 @@ public class DashboardFragment extends Fragment {
             if (view.getId() == R.id.next_page) {
                 MainActivity.hideBottomNavigationView(MainActivity.navigationView);
                 //创建second fragment， 让它知道其存在
-                SecondFragment secondFragment = new SecondFragment().newInstance("id1013");
+                SecondFragment secondFragment = new SecondFragment().newInstance("idChimChim1013");
                 //跳转页面的操作
                 goNextFragment(secondFragment);
+                next_page_btn.setVisibility(View.GONE);
             }
         }
     };
 
     //跳转页面
-    public static void goNextFragment(Fragment fragment){
-
+    public void goNextFragment(Fragment fragment){
         FragmentManager mFragmentManager = fragmentManager;
         //transaction 作用于 换/做哪些相关操作 i.e 笔记上的：.addToBackStack
         // .beginTransaction 为了换页准备用到的
