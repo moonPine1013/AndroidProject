@@ -1,4 +1,4 @@
-package com.example.estellafragment.ui.dashboard;
+package com.example.estellafragment.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,18 +28,8 @@ public class DashboardFragment extends Fragment {
     Button next_page_btn;
     public static FragmentManager fragmentManager;
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        //DashboardViewModel dashboardViewModel =
-                //new ViewModelProvider(this).get(DashboardViewModel.class);
-
-        //binding = FragmentDashboardBinding.inflate(inflater, container, false);
-        //View root = binding.getRoot();
-
-        //final TextView textView = binding.textDashboard;
-        //dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        //return root;
 
         //固定写法:
         //用inflater来接layout，mRoot就是xml的layout的本身
@@ -67,7 +57,7 @@ public class DashboardFragment extends Fragment {
             if (view.getId() == R.id.next_page) {
                 MainActivity.hideBottomNavigationView(MainActivity.navigationView);
                 //创建second fragment， 让它知道其存在
-                SecondFragment secondFragment = new SecondFragment();
+                SecondFragment secondFragment = new SecondFragment().newInstance("id1013");
                 //跳转页面的操作
                 goNextFragment(secondFragment);
             }

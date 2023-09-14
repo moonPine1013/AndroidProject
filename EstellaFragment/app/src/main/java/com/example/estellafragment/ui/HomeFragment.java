@@ -1,4 +1,4 @@
-package com.example.estellafragment.ui.notifications;
+package com.example.estellafragment.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,22 +11,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.estellafragment.R;
-import com.example.estellafragment.databinding.FragmentNotificationsBinding;
+import com.example.estellafragment.databinding.FragmentHomeBinding;
 
-public class NotificationsFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     private static View mRoot;
     TextView textView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        mRoot = inflater.inflate(R.layout.fragment_notifications,container,false);
+
+        mRoot = inflater.inflate(R.layout.fragment_home,container,false);
         initView();
         return mRoot;
     }
     public void initView(){
         //用于查找mRoot是对照谁的
-        textView = mRoot.findViewById(R.id.text_notifications);
+        textView = mRoot.findViewById(R.id.text_home);
     }
 
     @Override
